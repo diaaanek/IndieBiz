@@ -1,0 +1,11 @@
+<h1>Leave a Review for <%= @business.name %></h1>
+<br><br>
+<div class="wrapper">
+  <%= form_for @review do |f| %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
+    <%= f.hidden_field :business_id, value: @business.id %>
+      <%= f.number_field :rating %><br>
+    <%= f.text_area :content, placeholder: "leave review here" %><br>
+    <%= f.submit "post comment" %>
+  <% end %>
+</div>

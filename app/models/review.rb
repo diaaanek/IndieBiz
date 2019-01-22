@@ -7,5 +7,5 @@ class Review < ApplicationRecord
 
   # Validations
   validates :rating, presence: true
-  validates :description, presence: true
+  validates :comment, presence: true
 end

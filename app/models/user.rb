@@ -9,8 +9,9 @@ has_many :reviews
 has_secure_password
 
 # Validations
-validates :name, :email, presence: true
-validates :password, length: { minimum: 6, allow_blank: true }
-
+# validates :name, :email, :password, presence: true
+# # validates :password, length: { minimum: 6, allow_blank: true }
+#
+# validates :email, uniqueness:{case_sensitive: false}
 
 end

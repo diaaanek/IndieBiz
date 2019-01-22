@@ -1,0 +1,48 @@
+<div id="header-image" class="<%=  %>">
+  <section class="header-box"><%= @business.name %>.</section><br>
+</div>
+<br>
+
+<!--
+t.string "name"
+t.text "description"
+t.float "goal"
+t.string "location"
+t.string "image_url"
+t.integer "user_id"
+t.integer "category_id" -->
+<!-- Content -->
+
+<div class="wrapper show-wrapper">
+  <section class="business-info">
+    <!-- <p class="business"> -->
+
+    <h2>About <%= @business.name%>: </h2>
+      <br> <%= @business.description %>
+</p>
+<hr>
+<p>Category: <%= @business.category.name %> </p>
+<p>Goal Funding: <%= @business.goal %> </p>
+<p>Location: <%= @business.location %> </p>
+<p>Owner: <%= @business.user.name %> </p>
+
+<hr>
+    <div class="action-buttons">
+        <%= link_to "Update this start-up", edit_business_path(@business)%><br>
+        <%= link_to "Delete this start-up", @business, method: :delete %>
+
+    </div>
+
+  </section>
+
+
+
+<!-- REVIEWS -->
+  <section class="comments">
+
+    <h2>Reviews:</h2>
+
+    <!---->
+    </div>
+  </section>
+</div>

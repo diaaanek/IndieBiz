@@ -1,0 +1,13 @@
+
+<center><h1> All Start-Ups </h1>
+<br>
+<div class="wrapper">
+  <% @businesses.each do |d| %>
+      <div class="destination_name"><%= link_to d.name, business_path(d) %></div><br>
+    </div>
+
+  <% end %>
+    <%= link_to "Submit Start-Up", new_business_path, class:"button create_button" %><br>
+</div>
+
+</center>
