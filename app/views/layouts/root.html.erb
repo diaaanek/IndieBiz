@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IndieBiz</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body id='home_body'>
+    <header>
+      <nav id="home_nav">
+        <span id="logo-link"><%= link_to "IndieBiz", root_path %></span>
+        <%= link_to "start-ups", root_path %>
+
+
+        <%= link_to "login", root_path %>
+        <%= link_to "logout", root_path %>
+      </nav>
+    </header>
+    <%= yield %>
+  </body>
+</html>

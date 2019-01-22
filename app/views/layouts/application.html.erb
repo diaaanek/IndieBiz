@@ -1,0 +1,28 @@
+<link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200'
+rel='stylesheet' type='text/css'>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IndieBiz</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+
+  <body>
+      <header>
+        <nav>
+          <span id="logo-link"><%= link_to "IndieBiz", root_path %></span>
+          <%= link_to "start-ups", root_path %>
+          <%= link_to "login", %>
+          <%= link_to "logout", %>
+        </nav>
+
+      </header>
+    <%= yield %>
+  </body>
+</html>

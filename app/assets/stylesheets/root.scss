@@ -1,0 +1,41 @@
+body#home_body {
+ background-image: url(new.gif);
+ background-size: cover;
+
+   // background-size: cover; -ms-background-size: cover; -o-background-size: cover; -moz-background-size: cover; -webkit-background-size: cover;
+}
+
+
+nav#home_nav {
+  background-image: none;
+}
+
+div.homepage_header {
+  position: absolute;
+  top: 40%;
+  left: 30%;
+}
+
+.header_top {
+  text-align: center;
+  font-size: 1em;
+  color: white;
+}
+
+.header_bottom {
+  text-align: center;
+  font-size: 5em;
+}
+
+.homepage_header a {
+  color: black;
+  text-decoration: none;
+  background-color: white;
+  padding: 3px 18px;
+  position: absolute;
+  left: 40%;
+}
+
+#everywhere {
+  font-weight: bold;
+}
