@@ -1,7 +1,6 @@
-# README
+# IndieBiz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Module 2 Final Project
 
 Things you may want to cover:
 
