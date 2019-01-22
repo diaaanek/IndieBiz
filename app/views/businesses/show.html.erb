@@ -17,7 +17,7 @@ t.integer "category_id" -->
   <section class="business-info">
     <!-- <p class="business"> -->
 
-    <h2>About <%= @business.name%>: </h2>
+    <h3>About <%= @business.name%>: </h3>
       <br> <%= @business.description %>
 </p>
 <hr>
@@ -39,10 +39,24 @@ t.integer "category_id" -->
 
 <!-- REVIEWS -->
   <section class="comments">
+    <h3>Reviews:</h3>
 
-    <h2>Reviews:</h2>
 
+
+        <div class="action-buttons">
+          <%= link_to "Rate #{@business.name}", new_review_path%> <br>
+        </div>
     <!---->
-    </div>
+    <br>
+<hr>
+
+    <!-- DONATIONS -->
+
+    <h3>Donations:</h3>
+        <div class="action-buttons">
+        <%= link_to "Pledge a Donation", new_donation_path %><br>
+        </div>
+
+
   </section>
 </div>
