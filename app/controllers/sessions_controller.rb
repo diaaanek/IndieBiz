@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
           redirect_to root_path
               # login
             else
-              flash[:error] = "bad, not authenticated"
+              flash[:error] = "Sign in again"
             redirect_to login_path
             end
           end

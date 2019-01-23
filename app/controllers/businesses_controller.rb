@@ -17,18 +17,15 @@ class BusinessesController < ApplicationController
 
   	def create
       # @business.user = current_user
-      @categories = Category.all
-        @users = User.all
-
       # @business.user = @user
 
-  @business = Business.new(business_params)
+
+      @business = Business.create(business_params)
   		if @business.valid?
-          @business.save
-      session[:business_id] = @business.id
-  					redirect_to @business
+      # session[:business_id] = @business.id
+  					redirect_to business_path(@business)
   		else
-  			render :new
+  			redirect_to new_business_path
   		end
   	end
 
@@ -42,14 +39,11 @@ class BusinessesController < ApplicationController
         @categories = Category.all
         @users = User.all
         @business = Business.find(params[:id])
-
-        # render :layout => "application"
-  		# @categories = Category.all.map{ |c| [c.name, c.id] }
-      # @business = Business.find(params[:id])
-   # if @project.user != current_user
-   #   flash[:alert] = 'You can only edit projects that you created.'
-   #   redirect_to(@project)
-   # end
+    # @business = Business.find(params[:id])
+     # if @project.user != current_user
+     #   flash[:alert] = 'You can only edit projects that you created.'
+     #   redirect_to(@project)
+     # end
   	end
 
   	def update
@@ -61,26 +55,18 @@ class BusinessesController < ApplicationController
   		if @business.update(business_params)
   			redirect_to business_path(@business)
   		else
-  			render 'edit'
+  			render edit_business_path
   		end
   	end
 
-  	def destroy
-      @business = Business.find(params[:id])
-  		@business.destroy
-  		redirect_to root_path
-  	end
+  	# def destroy
+    #   @business = Business.find(params[:id])
+  	# 	@business.destroy
+  	# 	redirect_to root_path
+  	# end
 
   	private
 
-    #
-    # t.string "name"
-    # t.text "description"
-    # t.float "goal"
-    # t.string "location"
-    # t.string "image_url"
-    # t.integer "user_id"
-    # t.integer "category_id"
   		def business_params
   			params.require(:business).permit(:name, :description, :location, :goal, :user_id, :category_id)
   		end

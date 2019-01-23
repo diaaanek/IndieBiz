@@ -1,7 +1,7 @@
 class ReviewsController < ApplicationController
 
   # before_action :find_business
-	before_action :find_review, only: [:edit, :update, :destroy]
+	# before_action :find_review, only: [:edit, :update, :destroy]
 
 	def new
 		@review = Review.new
@@ -17,27 +17,31 @@ class ReviewsController < ApplicationController
   end
 
 	def create
-		@businesses = Business.all
-		@users = User.all
+		# byebug
+		#    @user = User.find_by(id: session[:user_id])
 		@review = Review.create(review_params)
 		# @review.business_id = @business.id
 		# @review.user_id = current_user.id
+		# byebug
+		if @review.valid?
+			redirect_to root_path
 
-		if @review.save
-			redirect_to business_path(@business)
+			# FIX PATH !!!
+
 		else
-			render 'new'
+			redirect_to new_review_path
 		end
 	end
 
 	def edit
+
 	end
 
 	def update
 		if @review.update(review_params)
 			redirect_to business_path(@business)
 		else
-			render 'edit'
+			redirect_to edit_business_path
 		end
 	end
 
@@ -49,7 +53,7 @@ class ReviewsController < ApplicationController
 	private
 
 		def review_params
-			params.require(:review).permit(:rating, :comment)
+			params.require(:review).permit(:rating, :comment, :user_id, :business_id)
 		end
 
 		# def find_business

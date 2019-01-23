@@ -3,8 +3,8 @@
 
 <div class="wrapper">
       <p> <%= form_for @review do |f| %>
-        <p> <%= f.label :business %>
-        <p> <%= f.collection_select :business_id, @businesses, :id, :name %> </p>
+      <p> <%= f.label :business %>
+      <p> <%= f.collection_select :business_id, @businesses, :id, :name %> </p>
       <p> <%= f.label :rating %>
       <%= f.number_field :rating  %> <p>
       <p> <%= f.label :comment %>

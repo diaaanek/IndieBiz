@@ -1,8 +1,9 @@
 <div class="wrapper">
   <%= form_for @business do |f| %>
-     <%# f.hidden_field :user_id, value: @business.user.id  %>
-     <%= f.label :name, "Name:" %>
+     <%= f.label :name, "Business name:" %>
     <%= f.text_field :name, placeholder: "Start-Up Name"  %>
+    <%= f.label :name, "Business owner:" %>
+     <%= f.collection_select :user_id, @users, :id, :name %>
     <%= f.label :description, "About your biz:" %>
     <%= f.text_area :description, placeholder: "What does your biz do?"  %>
     <%= f.label :Location, "Where are ya'll located?" %>
