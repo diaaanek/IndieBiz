@@ -3,7 +3,7 @@ class Business < ApplicationRecord
   #Associations
   belongs_to :user
   belongs_to :category
-  
+
   has_many :reviews
   has_many :donations
 
@@ -11,8 +11,8 @@ class Business < ApplicationRecord
 
 # Validations
 
-validates :name, :description, :user_id, presence: true;
-validates :name, uniqueness: true
+# validates :name, :description, :user_id, presence: true;
+# validates :name, uniqueness: true
 
 
 end

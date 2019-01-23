@@ -17,6 +17,7 @@ class BusinessesController < ApplicationController
   	def create
       @business = Business.new(business_params)
       @business.user = current_user
+        @categories = Category.all
       # @business.user = user
   		# @business = current_user.businesses.build(business_params)
   		# @business.category_id = params[:category_id]

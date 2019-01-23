@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
 # # create session
 def create
-  @user = User.new(user_params)
+  @user = User.create(user_params)
   #
   if  @user.save
     session[:id] = @user.id
@@ -47,15 +47,13 @@ def show
     end
   end
 
-#
-#   # def businesses
-#   #     @businesses = Business.where(user:session[:id])
-#   #   end
-#
-#
-#
-#
+# ide
+  # def businesses
+  #     @businesses = Business.where(user:session[:id])
+  #   end
+
 private
+
   def user_params
     params.require(:user).permit(:name, :bio, :email, :password, :password_confirmation)
   end
