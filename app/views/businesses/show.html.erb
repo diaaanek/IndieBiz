@@ -1,5 +1,5 @@
 <div id="header-image" class="<%=  %>">
-  <section class="header-box"><%= @business.name %>.</section><br>
+  <section class="header-box"><%= @business.name %></section><br>
 </div>
 <br>
 
@@ -22,7 +22,7 @@ t.integer "category_id" -->
 </p>
 <hr>
 <p>Category: <%= @business.category.name %> </p>
-<p>Goal Funding: <%= @business.goal %> </p>
+<p>Goal Funding: $<%= @business.goal %> </p>
 <p>Location: <%= @business.location %> </p>
 <p>Owner: <%= @business.user.name %> </p>
 
@@ -35,11 +35,21 @@ t.integer "category_id" -->
 
   </section>
 
+  <!-- "reviews", force: :cascade do |t|
+   t.integer "rating"
+   t.text "comment"
+   t.integer "user_id" -->
 
-
-<!-- REVIEWS -->
+<!-- SHOW REVIEWS -->
   <section class="comments">
     <h3>Reviews:</h3>
+
+<br><% @business.reviews.each do |d| %>
+<b> Rating: </b> <%= d.rating %> <br>
+<b> Comments: </b> <%= d.comment %> <br>
+<b> By: </b> <%= d.user.name %>
+<br><br>
+<% end %>
 
 
 
@@ -47,16 +57,24 @@ t.integer "category_id" -->
           <%= link_to "Rate #{@business.name}", new_review_path%> <br>
         </div>
     <!---->
-    <br>
 <hr>
 
     <!-- DONATIONS -->
 
     <h3>Donations:</h3>
+    <h4>Total:
+    </h4>
+    <% @business.donations.each do |d| %>
+    <b> Amount: </b> <%= d.amount %> <br>
+    <b> Backer: </b> <%= d.user.name %>
+    <br><br>
+    <% end %>
+
         <div class="action-buttons">
         <%= link_to "Pledge a Donation", new_donation_path %><br>
         </div>
-
+<br>
+<hr>
 
   </section>
 </div>

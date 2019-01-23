@@ -1,0 +1,17 @@
+
+
+<div class="wrapper show-wrapper">
+
+<center>  <h3>Donate: </h3>
+
+
+  <%= simple_form_for([@donation]) do |f| %>
+  	<div id="rating-form">
+      <label>Start-Up: </label>
+  		<label>Rating: </label>
+      <label>Content: </label>
+  	</div>
+  	<%= f.button :submit, :class => "btn-custom" %>
+  <% end %>
+
+</div>
