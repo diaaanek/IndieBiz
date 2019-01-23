@@ -1,11 +1,3 @@
-<%= simple_form_for([@company, @company.reviews.build]) do |f| %>
-	<div id="rating-form">
-		<label>Rating</label>
-	</div>
-	<%= f.input :comment %>
-	<%= f.button :submit, :class => "btn-custom" %>
-<% end %>
-
 <!--
 <script>
 	$('#rating-form').raty({
@@ -13,3 +5,13 @@
 		scoreName: 'review[rating]'
 	});
 </script> -->
+
+<div class="wrapper">
+  <%= form_for @review do |f| %>
+    <%= f.hidden_field :user_id, value: @current_user.id %>
+    <%= f.hidden_field :business_id, value: @business.id %>
+		<%= f.number_field :rating %><br>
+    <%= f.text_area :comment, placeholder: "leave review here" %><br>
+    <%= f.submit "post review" %>
+  <% end %>
+</div>

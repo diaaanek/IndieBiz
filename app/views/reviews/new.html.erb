@@ -1,11 +1,17 @@
-<h1>Leave a Review for <%= @business.name %></h1>
-<br><br>
-<div class="wrapper">
-  <%= form_for @review do |f| %>
-    <%= f.hidden_field :user_id, value: @current_user.id %>
-    <%= f.hidden_field :business_id, value: @business.id %>
-      <%= f.number_field :rating %><br>
-    <%= f.text_area :content, placeholder: "leave review here" %><br>
-    <%= f.submit "post comment" %>
-  <% end %>
-</div>
+<h1>Leave a review for <%= @business.name %></h1>
+<br><br><br>
+
+
+      <p> <%= form_for @donation do |f| %>
+      <p> <%= f.name :name %> :
+      <%= f.text_field :name %> <p>
+        <p> <%= f.label :business %> :
+        <p> <%= f.collection_select :business_id, @businesses, :id, :name %></p>
+      <p> <%= f.rating :rating %> :
+      <%= f.number_field :rating  %> <p>
+      <p> <%= f.label :content %> :
+      <%= f.text_area :content %> </p>
+      <p> <%= f.label :user %> :
+      <p> <%= f.collection_select :user_id, @users, :id, :name %></p>
+      <p> <%= f.button :submit,  :class => "btn-custom" %> </p>
+      <% end %>

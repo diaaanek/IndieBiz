@@ -20,8 +20,10 @@ rel='stylesheet' type='text/css'>
 
             <%= link_to "start-ups", businesses_path %>
 
-            <%= link_to "login", new_user_path %>
-            <%= link_to "logout", root_path %>
+              <%= link_to "my biz", user_path(@current_user) if @current_user %>
+              
+            <%= link_to "login", '/login' if !@current_user%>
+            <%= link_to "logout", '/logout' if @current_user  %>
         </nav>
 
       </header>

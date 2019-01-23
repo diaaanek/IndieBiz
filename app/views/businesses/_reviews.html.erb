@@ -1,0 +1,12 @@
+<% @business.reviews.each do |c| %>
+  <div class="review">
+    <p>
+      <%= c.user.name.capitalize %> says:<br><br>
+      <%= c.rating %><br><br>
+      <%= c.comment %>
+      <%= link_to "edit.", edit_business_review_path(@business, c), class: "review-links" if c.user == @current_user %>
+      <%= link_to "like.", like_review_path(c), class: "review-links", method: :post %>
+      <%= link_to "dislike.", dislike_review_path(c), class: "review-links", method: :post %>
+    </p>
+  </div><br>
+<% end %>

@@ -1,6 +1,11 @@
 body#home_body {
- background-image: url(new.gif);
+ // background-image: url(original.gif);
+ // background-color: #e7e7e7;
  background-size: cover;
+
+
+ // text-shadow: 3px 2px 0px #000, 5px 5px 0px rgba(0,0,0,0.15);
+
 
    // background-size: cover; -ms-background-size: cover; -o-background-size: cover; -moz-background-size: cover; -webkit-background-size: cover;
 }
@@ -8,6 +13,8 @@ body#home_body {
 
 nav#home_nav {
   background-image: none;
+   background-color: #e9eaec;
+   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 div.homepage_header {
@@ -19,13 +26,15 @@ div.homepage_header {
 .header_top {
   text-align: center;
   font-size: 1em;
-  color: white;
+  color: black;
 }
 
 .header_bottom {
   text-align: center;
-  font-size: 5em;
-}
+  font-size: 4em;
+    // background-color: white;
+
+  }
 
 .homepage_header a {
   color: black;

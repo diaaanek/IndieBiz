@@ -19,9 +19,10 @@ h1 {
   border-style: solid;
   border-color: #fff;
   color: #000;
-  background-color: #fff;
+
   position: relative;
   display: inline-block;
+  // box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.26);
 }
 
 #header-image {
@@ -32,12 +33,15 @@ h1 {
   height: 300px;
   text-align: center;
 
-}
+  }
+
+
 
 .show-wrapper {
   position: absolute;
   top: 325px;
   margin: auto;
+
 }
 
 // BUSINESS INFO

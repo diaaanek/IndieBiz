@@ -18,7 +18,7 @@ t.integer "category_id" -->
     <!-- <p class="business"> -->
 
     <h3>About <%= @business.name%>: </h3>
-      <br> <%= @business.description %>
+      <%= @business.description %>
 </p>
 <hr>
 <p>Category: <%= @business.category.name %> </p>
@@ -28,8 +28,8 @@ t.integer "category_id" -->
 
 <hr>
     <div class="action-buttons">
-        <%= link_to "Update this start-up", edit_business_path(@business)%><br>
-        <%= link_to "Delete this start-up", @business, method: :delete %>
+        <%= link_to "Edit this start-up", edit_business_path(@business)%>   <%= link_to "Delete this start-up", @business, method: :delete %>
+        <%= link_to "Contact owner", @business %>
 
     </div>
 
@@ -43,8 +43,7 @@ t.integer "category_id" -->
 <!-- SHOW REVIEWS -->
   <section class="comments">
     <h3>Reviews:</h3>
-
-<br><% @business.reviews.each do |d| %>
+<% @business.reviews.each do |d| %>
 <b> Rating: </b> <%= d.rating %> <br>
 <b> Comments: </b> <%= d.comment %> <br>
 <b> By: </b> <%= d.user.name %>

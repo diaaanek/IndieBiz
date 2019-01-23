@@ -1,0 +1,21 @@
+<div class="wrapper">
+  <%= form_for @business do |f| %>
+     <%# f.hidden_field :user_id, value: @business.user.id  %>
+    <%= f.text_field :name, placeholder: "Start-Up Name"  %><br>
+
+    <%= f.text_area :description, placeholder: "What does your biz do?"  %><br>
+    <%= f.text_field :location, placeholder: "Location"  %><br>
+    <%= f.number_field :goal, placeholder: "Goal Amount $" %><br>
+  <%= f.collection_select :category_id, @categories, :id, :name %>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<!--
+t.string "name"
+t.text "description"
+t.float "goal"
+t.string "location"
+t.string "image_url"
+t.integer "user_id"
+t.integer "category_id" -->

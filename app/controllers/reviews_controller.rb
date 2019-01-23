@@ -1,20 +1,26 @@
 class ReviewsController < ApplicationController
 
-  before_action :find_business
+  # before_action :find_business
 	before_action :find_review, only: [:edit, :update, :destroy]
 
 	def new
-		@review = Review.new
-    find_business
-	end
+	# 	@review = Review.new
+  #   # find_business
+  if Business.exists?(params[:business_id])
+      @business = Business.find_by(id: params[:business_id])
+      @review = @business.reviews.build(user_id: current_user.id)
+    else
+      redirect_to new_review_path
+    end
+  end
 
 	def create
-		@review = Review.new(review_params)
-		@review.business_id = @business.id
-		@review.user_id = current_user.id
+		review = Review.new(review_params)
+		# @review.business_id = @business.id
+		# @review.user_id = current_user.id
 
 		if @review.save
-			redirect_to business_path(@business)
+			redirect_to business_path(review.business)
 		else
 			render 'new'
 		end
@@ -31,10 +37,10 @@ class ReviewsController < ApplicationController
 		end
 	end
 
-	def destroy
-		@review.destroy
-		redirect_to business_path(@business)
-	end
+	# def destroy
+	# 	@review.destroy
+	# 	redirect_to business_path(@business)
+	# end
 
 	private
 
@@ -42,9 +48,9 @@ class ReviewsController < ApplicationController
 			params.require(:review).permit(:rating, :comment)
 		end
 
-		def find_business
-			@business = Business.find(params[:business_id])
-		end
+		# def find_business
+		# 	@business = Business.find(params[:business_id])
+		# end
 
 		def find_review
 			@review = Review.find(params[:id])

@@ -44,6 +44,14 @@ gem 'bcrypt', '~> 3.1.7'
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
+
+
+# FUTURE IMPLEMENTATION
+
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'dotenv-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

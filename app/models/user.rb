@@ -7,6 +7,8 @@ has_many :reviews
 
 
 has_secure_password
+# 
+# validates :email, presence: true, uniqueness: true
 
 # Validations
 # validates :name, :email, :password, presence: true
