@@ -15,12 +15,14 @@ class DonationsController < ApplicationController
   end
 
 def create
-  @donation = Donation.new(donation_params)
-  @donation.user = current_user
-  @donation.business = @business
+  @donation = Donation.create(donation_params)
+  if @donation.valid?
+  # @donation.user = current_user
+  # @donation.business = @business
 
   # if @business.save!
     redirect_to root_path
+end
 end
 
   # if @business.save!
