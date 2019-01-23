@@ -1,15 +1,15 @@
 class ApplicationController < ActionController::Base
 
-  helper_method :current_user
+  helper_method :current_user, :logged_in?
 
   def current_user
-     if session[:user_id]
-        @current_user ||= User.find(session[:user_id])
-    else
-        @current_user = nil
+     # if session[:user_id]
+        @current_user ||= User.find(session[:user_id])  if session[:user_id]
+    # else
+    #     @current_user = nil
       end
       # @current_user ||= User.find_by(id: session[:user_id])
-    end
+
     #
     def logged_in?
        !!current_user
@@ -34,5 +34,4 @@ class ApplicationController < ActionController::Base
     # def set_donation
     #   @donation = Donation.find_by(id: params[:id])
     # end
-
-  end #end Application controller
+end  #end Application controller

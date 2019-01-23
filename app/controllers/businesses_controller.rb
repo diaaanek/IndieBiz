@@ -12,18 +12,21 @@ class BusinessesController < ApplicationController
   	def new
   		@business = Business.new
       @categories = Category.all
+      @users = User.all
   	end
 
   	def create
-      @business = Business.new(business_params)
-      @business.user = current_user
-        @categories = Category.all
-      # @business.user = user
-  		# @business = current_user.businesses.build(business_params)
-  		# @business.category_id = params[:category_id]
-      #
-  		if @business.save
-  			redirect_to businesses_url
+      # @business.user = current_user
+      @categories = Category.all
+        @users = User.all
+
+      # @business.user = @user
+
+  @business = Business.new(business_params)
+  		if @business.valid?
+          @business.save
+      session[:business_id] = @business.id
+  					redirect_to @business
   		else
   			render :new
   		end
@@ -36,6 +39,10 @@ class BusinessesController < ApplicationController
 
 
   	def edit
+        @categories = Category.all
+        @users = User.all
+        @business = Business.find(params[:id])
+
         # render :layout => "application"
   		# @categories = Category.all.map{ |c| [c.name, c.id] }
       # @business = Business.find(params[:id])
@@ -46,6 +53,9 @@ class BusinessesController < ApplicationController
   	end
 
   	def update
+      @categories = Category.all
+        @users = User.all
+
       @business = Business.find(params[:id])
   		@business.category_id = params[:category_id]
   		if @business.update(business_params)
@@ -72,7 +82,7 @@ class BusinessesController < ApplicationController
     # t.integer "user_id"
     # t.integer "category_id"
   		def business_params
-  			params.require(:business).permit(:name, :description, :goal, :location, :image_url, :user_id, :category_id, :img_url)
+  			params.require(:business).permit(:name, :description, :location, :goal, :user_id, :category_id)
   		end
 
   end #end BusinessesController

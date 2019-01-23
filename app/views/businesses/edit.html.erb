@@ -1,5 +1,20 @@
 
-<br><br>
+<br><br><br> <br>
 		<h3>Edit Biz Idea? </h3>
 		<p>Update your genius idea below:</p>
-		<%= render 'form' %>
+		<br>
+		<%= form_for @business do |f| %>
+	     <%= f.label :name, "Business name:" %>
+	    <%= f.text_field :name, placeholder: "Start-Up Name"  %>
+			<%= f.label :name, "Business owner:" %>
+			 <%= f.collection_select :user_id, @users, :id, :name %>
+	    <%= f.label :description, "About your biz:" %>
+	    <%= f.text_area :description, placeholder: "What does your biz do?"  %>
+	    <%= f.label :Location, "Where are ya'll located?" %>
+	    <%= f.text_field :location, placeholder: "Location"  %><br>
+	    <%= f.label :goal, "What's your goal funding amount?" %>
+	    <%= f.number_field :goal, placeholder: "Goal Amount $" %><br>
+	    <%= f.label :name, "Category:" %>
+	  <%= f.collection_select :category_id, @categories, :id, :name %>
+	  <center>   <%= f.submit %>
+	  <% end %>

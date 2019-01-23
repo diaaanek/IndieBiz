@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   get '/login', :to => 'sessions#new'
+    # get '/login', :to => 'sessions#login', as: 'login'
   post '/login/', :to => 'sessions#create'
 
-  get '/logout', to: 'sessions#destroy'
+  get '/logout', to: 'sessions#destroy', as: 'logout'
   get 'signup'=> "users#new"
 
   # get ‘signup’, to: ‘users#new’, as: ‘signup’

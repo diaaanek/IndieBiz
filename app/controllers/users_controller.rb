@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  # def index
-  #   @users = User.all
-  # end
+  def index
+
+  end
 
 
   def new
@@ -11,18 +11,17 @@ class UsersController < ApplicationController
 
 # # create session
 def create
-  @user = User.create(user_params)
-  #
-  if  @user.save
-    session[:id] = @user.id
+  @user = User.new(user_params)
+@user.save
+    # session[:id] = @user.id
   #   session[:name] = @user.name
 
   #CHNAGE REDIRECT
-    redirect_to root_path
+#     redirect_to user_path(@user)
   else
     render 'new'
   end
-end
+# end
 #
 #     if @user.save
 #         redirect_to root_path, alert: "signed up"
