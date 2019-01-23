@@ -2,22 +2,24 @@
 
 Module 2 Final Project
 
-Things you may want to cover:
+## Create: 
+* Users can sign up, login, and log out
+* Validates user
+* Users can submit a start-up idea
+* Users can create a review 
+* Users can submit a donation to start-up of their choice
 
-* Ruby version
+## Read: 
+* Displays start-up info, reviews and donations for selected start-up
 
-* System dependencies
 
-* Configuration
+## Update:
+* Users can update their own biz info
 
-* Database creation
+## Delete:
+* Users can remove review
+* Users can remove their own start-up from db
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Stretch Goals
+* Implement star rating for review 
+* Improve sessions
