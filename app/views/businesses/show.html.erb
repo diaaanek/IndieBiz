@@ -3,16 +3,6 @@
 </div>
 <br>
 
-<!--
-t.string "name"
-t.text "description"
-t.float "goal"
-t.string "location"
-t.string "image_url"
-t.integer "user_id"
-t.integer "category_id" -->
-<!-- Content -->
-
 <div class="wrapper show-wrapper">
   <section class="business-info">
     <!-- <p class="business"> -->
@@ -21,10 +11,10 @@ t.integer "category_id" -->
       <%= @business.description %>
 </p>
 <hr>
-<p>Category: <%= @business.category.name %> </p>
-<p>Goal Funding: $<%= @business.goal %> </p>
-<p>Location: <%= @business.location %> </p>
-<p>Owner: <%= @business.user.name %> </p>
+    <p>Category: <%= @business.category.name %> </p>
+    <p>Goal Funding: $<%= @business.goal %> </p>
+    <p>Location: <%= @business.location %> </p>
+    <p>Owner: <%= @business.user.name %> </p>
 
 <hr>
     <div class="action-buttons">
@@ -35,44 +25,36 @@ t.integer "category_id" -->
 
   </section>
 
-  <!-- "reviews", force: :cascade do |t|
-   t.integer "rating"
-   t.text "comment"
-   t.integer "user_id" -->
 
 <!-- SHOW REVIEWS -->
-  <section class="comments">
-    <h3>Reviews:</h3>
+    <section class="comments">
+        <div class="review">
+      <h3><%= "#{@reviews.size} " %> Reviews:</h3>
 
 
-<% @business.reviews.each do |d| %>
-<b> Rating: </b> <%= d.rating %> <br>
-<div class='star-rating' data-score=<%= @avg_rating %>></div>
-<%= "#{@reviews.size} reviews" %>
-<b> Comments: </b> <%= d.comment %> <br>
-<b> By: </b> <%= d.user.name %>
-<br>
- <br>
-<% end %>
+        <% @business.reviews.each do |d| %>
+        <b> Rating: </b> <%= d.rating %> <br>
+        <div class='star-rating' data-score=<%= @avg_rating %>></div>
+        <b> Comments: </b> <%= d.comment %> <br>
+        <b> By: </b> <%= d.user.name %>
+        <br>
+         <br>
+        <% end %>
 
         <div class="action-buttons">
           <%= link_to "Rate #{@business.name}", new_review_path %> <br>
         </div>
-    <!---->
+    <!----></div>
 <hr>
 
     <!-- DONATIONS -->
 
-    <h3>Donations:</h3>
-    <h4>Total:
-
-    </h4>
+    <h3> Pledges:</h3>
     <% @business.donations.each do |d| %>
     <b> Amount: </b> <%= d.amount %> <br>
     <b> Backer: </b> <%= d.user.name %>
     <br><br>
     <% end %>
-
         <div class="action-buttons">
         <%= link_to "Pledge a Donation", new_donation_path %><br>
         </div>

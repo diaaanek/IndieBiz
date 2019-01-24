@@ -25,7 +25,7 @@ class ReviewsController < ApplicationController
 		# @review.user_id = current_user.id
 		# byebug
 		if @review.valid?
-			redirect_to root_path
+			redirect_to businesses_path
 
 			# FIX PATH !!!
 

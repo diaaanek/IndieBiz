@@ -10,8 +10,12 @@ class Business < ApplicationRecord
 
 # Validations
 
-# validates :name, :description, :user_id, presence: true;
-# validates :name, uniqueness: true
+validates :name, :description, :user_id, presence: true;
+validates :name, uniqueness: true
 
 
+    def blank_stars
+      5 - rating.to_i
+    end
+    
 end

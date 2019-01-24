@@ -22,16 +22,4 @@ class ApplicationController < ActionController::Base
     def verify(instance)
       instance.user == current_user
     end
-
-    # def set_business
-    #   @business = Business.find_by(id: params[:id])
-    # end
-    #
-    # def set_review
-    #   @review = Review.find_by(id: params[:id])
-    # end
-    #
-    # def set_donation
-    #   @donation = Donation.find_by(id: params[:id])
-    # end
 end  #end Application controller

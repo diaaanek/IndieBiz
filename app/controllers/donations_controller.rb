@@ -1,8 +1,4 @@
 class DonationsController < ApplicationController
-  #
-  # before_action do
-  #     @business = Business.find(params[:business_id])
-  # end
 
   def index
   end

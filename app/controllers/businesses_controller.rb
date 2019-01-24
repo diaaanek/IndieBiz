@@ -16,12 +16,8 @@ class BusinessesController < ApplicationController
   	end
 
   	def create
-      # @business.user = current_user
-      # @business.user = @user
-
-
       @business = Business.create(business_params)
-  		if @business.valid?
+  		    if @business.valid?
       # session[:business_id] = @business.id
   					redirect_to business_path(@business)
   		else
@@ -33,27 +29,30 @@ class BusinessesController < ApplicationController
       @business = Business.find(params[:id])
       @donation = Donation.new
 
-      @reviews = @business.reviews.to_a
-      @avg_rating = if @reviews.blank?
-        0
-  else
-    @business.reviews.average(:rating).round(2)
-  end
+            ## STAR RATING
+              @reviews = @business.reviews.to_a
+              @avg_rating = if @reviews.blank?
+                0
+          else
+            @business.reviews.average(:rating).round(2)
+          end
     end
 
 
   	def edit
+
+      require_login
         @categories = Category.all
         @users = User.all
         @business = Business.find(params[:id])
-    # @business = Business.find(params[:id])
-     # if @project.user != current_user
-     #   flash[:alert] = 'You can only edit projects that you created.'
-     #   redirect_to(@project)
+     # if @business.user != current_user
+     #   flash[:alert] = 'You can only edit businesses that you created.'
+     #   redirect_to(@business)
      # end
   	end
 
   	def update
+      require_login
       @categories = Category.all
         @users = User.all
 
@@ -62,20 +61,21 @@ class BusinessesController < ApplicationController
   		if @business.update(business_params)
   			redirect_to business_path(@business)
   		else
-  			render edit_business_path
+  			redirect_to edit_business_path
   		end
   	end
 
-  	# def destroy
-    #   @business = Business.find(params[:id])
-  	# 	@business.destroy
-  	# 	redirect_to root_path
-  	# end
+  	def destroy
+      @business = Business.find(params[:id])
+  		@business.destroy
+  		redirect_to businesses_path
+  	end
 
   	private
 
   		def business_params
   			params.require(:business).permit(:name, :description, :location, :goal, :user_id, :category_id)
   		end
+
 
   end #end BusinessesController
