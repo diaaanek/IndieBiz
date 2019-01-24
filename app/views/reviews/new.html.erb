@@ -12,5 +12,6 @@
       <p> <%= f.label :user %>
       <p> <%= f.collection_select :user_id, @users, :id, :name %></p>
       <p> <%= f.button :submit,  :class => "btn-custom" %> </p>
+  <%= link_to "Back", businesses_path, class: "btn btn-secondary" %>
       <% end %>
 </div>

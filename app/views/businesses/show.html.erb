@@ -43,14 +43,17 @@ t.integer "category_id" -->
 <!-- SHOW REVIEWS -->
   <section class="comments">
     <h3>Reviews:</h3>
+
+
 <% @business.reviews.each do |d| %>
 <b> Rating: </b> <%= d.rating %> <br>
+<div class='star-rating' data-score=<%= @avg_rating %>></div>
+<%= "#{@reviews.size} reviews" %>
 <b> Comments: </b> <%= d.comment %> <br>
 <b> By: </b> <%= d.user.name %>
-<br><br>
+<br>
+ <br>
 <% end %>
-
-
 
         <div class="action-buttons">
           <%= link_to "Rate #{@business.name}", new_review_path %> <br>
@@ -78,3 +81,13 @@ t.integer "category_id" -->
 
   </section>
 </div>
+
+<script>
+    $('.star-rating').raty({
+      path: '/assets/',
+      readOnly: true,
+      score: function() {
+            return $(this).attr('data-score');
+    }
+  });
+</script>

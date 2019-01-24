@@ -19,7 +19,6 @@ def create
   if @donation.valid?
   # @donation.user = current_user
   # @donation.business = @business
-
   # if @business.save!
     redirect_to root_path
 end

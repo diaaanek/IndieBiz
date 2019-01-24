@@ -6,6 +6,7 @@ class ReviewsController < ApplicationController
 	def new
 		@review = Review.new
 		@businesses = Business.all
+		# @business = Business.find(params[:business_id])
 		@users = User.all
   #   # find_business
   # if Business.exists?(params[:business_id])

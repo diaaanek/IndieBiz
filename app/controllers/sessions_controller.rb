@@ -2,11 +2,12 @@ class SessionsController < ApplicationController
   #
   #
   def new
+    @user  = User.new
   end
   #
-  def login
-     login
-  end
+  # def login
+  #    login
+  # end
 
     def create
       # byebug
@@ -28,16 +29,22 @@ class SessionsController < ApplicationController
   #
   #
   def destroy
-    # session[:user_id] = nil
-    session.delete(:user_id)
-      redirect_to root_path, :notice => "Logged out!"
+    session.clear
+    # session.delete(:user_id)
+    # flash[:error] = "Logged out!"
+      redirect_to root_path
     # redirect_to root_path
   end
   #
   private
-   def login
-     session[:user_id] = @user.id
-     redirect_to @user
+   #
+   # def login
+   #   session[:user_id] = @user.id
+   #   redirect_to @user
+   # end
+
+   def user_params
+     params.require(:user).permit(:name, :bio, :email, :password, :password_confirmation)
    end
 
 end

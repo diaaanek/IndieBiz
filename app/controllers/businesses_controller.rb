@@ -32,6 +32,13 @@ class BusinessesController < ApplicationController
     def show
       @business = Business.find(params[:id])
       @donation = Donation.new
+
+      @reviews = @business.reviews.to_a
+      @avg_rating = if @reviews.blank?
+        0
+  else
+    @business.reviews.average(:rating).round(2)
+  end
     end
 
 

@@ -1,26 +1,27 @@
 class UsersController < ApplicationController
+    before_action :set_user, only:[:show, :edit, :update, :destroy]
 
-  def index
+    def index
+        @users = User.all
+    end
 
-  end
 
 
-  def new
-    @user = User.new
-  end
+    def new
+      @user = User.new
+    end
 
 # # create session
 def create
   @user = User.new(user_params)
-@user.save
-    # session[:id] = @user.id
-  #   session[:name] = @user.name
-
-  #CHNAGE REDIRECT
-#     redirect_to user_path(@user)
-  else
-    render 'new'
-  end
+    if @user.valid?
+        @user.save
+        session[:user_id] = @user.id
+        redirect_to user_path(@user)
+    else
+      render :new
+    end
+end
 # end
 #
 #     if @user.save
@@ -37,24 +38,39 @@ def create
 # end
 #
 # #show session
-def show
-    if logged_in?
-      @user = User.find_by(id: params[:id])
-      redirect_to user_path(current_user) if @user != current_user
-    else
-      require_login
+  def show
+      if logged_in?
+        # @user = User.find_by(id: params[:id])
+        redirect_to user_path(current_user) if @user != current_user
+      else
+        require_login
+      end
     end
-  end
 
 # ide
   # def businesses
   #     @businesses = Business.where(user:session[:id])
   #   end
 
-private
-
-  def user_params
-    params.require(:user).permit(:name, :bio, :email, :password, :password_confirmation)
+  def update
   end
+
+  def edit
+  end
+
+
+  def destroy
+  end
+
+
+    private
+
+    def set_user
+      @user = User.find_by(id: params[:id])
+    end
+
+    def user_params
+      params.require(:user).permit(:name, :bio, :email, :password, :password_confirmation)
+    end
 
 end #end UsersController
