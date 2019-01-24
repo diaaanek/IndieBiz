@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
   end
 
 	def create
+		
 		# byebug
 		#    @user = User.find_by(id: session[:user_id])
 		@review = Review.create(review_params)

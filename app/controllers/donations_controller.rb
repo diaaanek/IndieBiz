@@ -11,12 +11,14 @@ class DonationsController < ApplicationController
   end
 
 def create
+    # @business = Business.find(params[:id])
   @donation = Donation.create(donation_params)
   if @donation.valid?
   # @donation.user = current_user
   # @donation.business = @business
   # if @business.save!
-    redirect_to root_path
+
+    redirect_to  business_path(@donation.business_id)
 end
 end
 
@@ -31,6 +33,7 @@ end
 
 def show
   @donation = Donation.find(params[:id])
+
 end
 private
 

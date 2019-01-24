@@ -36,6 +36,7 @@ class BusinessesController < ApplicationController
           else
             @business.reviews.average(:rating).round(2)
           end
+
     end
 
 
@@ -45,11 +46,14 @@ class BusinessesController < ApplicationController
         @categories = Category.all
         @users = User.all
         @business = Business.find(params[:id])
+
+
      # if @business.user != current_user
      #   flash[:alert] = 'You can only edit businesses that you created.'
-     #   redirect_to(@business)
+     #   redirect_to root_path
      # end
   	end
+
 
   	def update
       require_login

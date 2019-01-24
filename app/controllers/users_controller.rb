@@ -21,21 +21,13 @@ def create
     end
 end
 #
-#     if @user.save
-#         redirect_to root_path, alert: "signed up"
-#       else
-#       flash.now[:alert] = 'failure'
-#         render :new
-#     end
-# end
-
-#
 # def current_user
 #   @current_user ||= User.find_by(id: session[:user_id])
 # end
 #
 # #show session
   def show
+
       if logged_in?
         # @user = User.find_by(id: params[:id])
         redirect_to user_path(current_user) if @user != current_user
@@ -67,7 +59,7 @@ end
     end
 
     def user_params
-      params.require(:user).permit(:name, :bio, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :bio, :email, :password, :password_confirmation, :donation_id)
     end
 
 end #end UsersController

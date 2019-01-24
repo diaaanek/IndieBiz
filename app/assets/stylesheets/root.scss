@@ -1,5 +1,5 @@
 body#home_body {
- background-image: url(rain.gif);
+ // background-image: url(rain.gif);
  // background-color: #e7e7e7;
  background-size: cover;
 
@@ -26,7 +26,8 @@ div.homepage_header {
 .header_top {
   text-align: center;
   font-size: 1em;
-  color: white;
+  color: black;
+
   // background-color: white;
   font-shadow: 5px 3px 5px 0 rgba(0, 0, 0, 0.26);
 }
@@ -34,6 +35,7 @@ div.homepage_header {
 .header_bottom {
   text-align: center;
   font-size: 4em;
+
     // background-color: white;
 
   }
