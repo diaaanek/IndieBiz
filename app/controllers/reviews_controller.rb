@@ -18,22 +18,18 @@ class ReviewsController < ApplicationController
   end
 
 	def create
-		
+
 		# byebug
 		#    @user = User.find_by(id: session[:user_id])
 		@review = Review.create(review_params)
-		# @review.business_id = @business.id
-		# @review.user_id = current_user.id
 		# byebug
 		if @review.valid?
-			redirect_to businesses_path
+			redirect_to business_path(@review.business_id)
 
-			# FIX PATH !!!
-
-		else
-			redirect_to new_review_path
+			else
+				redirect_to new_review_path
+			end
 		end
-	end
 
 	def edit
 

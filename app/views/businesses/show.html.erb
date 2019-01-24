@@ -29,10 +29,11 @@
 <!-- SHOW REVIEWS -->
     <section class="comments">
         <div class="review">
-          <div class='star-rating' data-score=<%= @avg_rating %>></div>
+
       <h3><%= "#{@reviews.size} " %> Reviews:</h3>
 
         <% @business.reviews.each do |d| %>
+          <div class='star-rating' data-score=<%= @avg_rating %>></div>
         <b> Rating: </b> <%= d.rating %> <br>
         <b> Comments: </b> <%= d.comment %> <br>
         <b> By: </b> <%= d.user.name %>

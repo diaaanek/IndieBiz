@@ -52,18 +52,20 @@
   <div class="column">
     <div class="card">
       <h3>My Info</h3>
-      <p> <%= @user.name %></p>
-      <p> <%= @user.email %></p>
-      <p> <%= @user.bio %></p>
-      <p> <%= @user.name %></p>
+      <b>Name: </b><p> <%= @user.name %></p>
+      <b>Email: </b><p> <%= @user.email %></p>
+      <b>Bio: </b><p> <%= @user.bio %></p>
+      
     </div>
   </div>
 
   <div class="column">
     <div class="card">
       <h3>My Biz</h3>
-      <p> some text </p>
-      <p>Some text</p>
+      <p>
+
+
+        </p>
     </div>
   </div>
 
@@ -72,10 +74,16 @@
       <h3>My Pledges</h3>
 
       <p> Stuff I've Donated to </p>
-      <p>My pledges
+      <p>My pledges </p>
+      <p><% @user.donations.each do |d| %>
+              <b><%=  d.business.name %>: </b> <%=  d.amount %>
+
+            <br>
+          <% end %></p>
 
 
-    
+         <br>
+
     </div>
   </div>
 

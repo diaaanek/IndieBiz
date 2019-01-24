@@ -18,17 +18,10 @@ def create
   # @donation.business = @business
   # if @business.save!
 
-    redirect_to  business_path(@donation.business_id)
+    redirect_to business_path(@donation.business_id)
 end
 end
 
-  # if @business.save!
-  #   redirect_to @business
-  #   flash[:notice] = "Pledge succesfully created."
-  # else
-  #   flash[:error] = "Sorry, pledge not succesful."
-  #   render :new
-    # redirect_to user_business_path
 
 
 def show

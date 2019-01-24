@@ -52,6 +52,8 @@ class BusinessesController < ApplicationController
      #   flash[:alert] = 'You can only edit businesses that you created.'
      #   redirect_to root_path
      # end
+
+
   	end
 
 
