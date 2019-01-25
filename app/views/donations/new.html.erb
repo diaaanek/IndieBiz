@@ -4,9 +4,6 @@
 
 <center> <h3>Donate </h3>
 
-  	<!-- <div id="rating-form"> -->
-
-
       <p> <%= form_for @donation do |f| %>
         <p> <%= f.label :business %>
           <%= f.collection_select :business_id, @businesses, :id, :name %></p>

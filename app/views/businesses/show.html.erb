@@ -32,9 +32,10 @@
 <!-- SHOW REVIEWS -->
     <section class="comments">
 
-
-      <h3><%= "#{@reviews.size} " %> Reviews:</h3>
+<!-- 
+Review.where(@business.id).size  -->
 <div class="comment-div">
+  <div class="comment">
         <% @business.reviews.each do |d| %>
           <div class='star-rating' data-score=<%= @avg_rating %>></div>
         <b> Rating: </b> <%= d.rating %> <br>
@@ -47,6 +48,7 @@
           <%= link_to "Rate #{@business.name}", new_review_path %> <br>
         </div>
     <!----></div>
+    </div>
 <hr>
 
     <!-- DONATIONS -->

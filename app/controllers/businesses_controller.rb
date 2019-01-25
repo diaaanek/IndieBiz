@@ -8,14 +8,10 @@ class BusinessesController < ApplicationController
   def index
     @businesses = Business.all
     render :layout => "application"
-
-    @images  = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"]
-    @random_no = rand(7)
-    @random_image = @images[@random_no]
-
   end
 
   	def new
+require_login
   		@business = Business.new
       @categories = Category.all
       @users = User.all
@@ -23,6 +19,7 @@ class BusinessesController < ApplicationController
   	end
 
   	def create
+
       @business = Business.create(business_params)
   		    if @business.valid?
       # session[:business_id] = @business.id
@@ -37,17 +34,12 @@ class BusinessesController < ApplicationController
       @donation = Donation.new
 
             ## STAR RATING
-              @reviews = @business.reviews.to_a
-              @avg_rating = if @reviews.blank?
-                0
-          else
-            @business.reviews.average(:rating).round(2)
-          end
-
-          @images  = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"]
-          @random_no = rand(7)
-          @random_image = @images[@random_no]
-
+          #     @reviews = @business.reviews.to_a
+          #     @avg_rating = if @reviews.blank?
+          #       0
+          # else
+          #   @business.reviews.average(:rating).round(2)
+          # end
     end
 
 
@@ -83,6 +75,7 @@ class BusinessesController < ApplicationController
   	end
 
   	def destroy
+
       @business = Business.find(params[:id])
   		@business.destroy
   		redirect_to businesses_path

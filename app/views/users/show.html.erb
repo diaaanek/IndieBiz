@@ -7,25 +7,20 @@
 * {
   box-sizing: border-box;
 }
-
-
 /* Float four columns side by side */
 .column {
-  float: center;
+  float: left;
   width: 25%;
   padding: 0 10px;
 }
-
 /* Remove extra left and right margins, due to padding */
 .row {margin: 0 -5px;}
-
 /* Clear floats after the columns */
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
-
 /* Responsive columns */
 @media screen and (max-width: 600px) {
   .column {
@@ -34,13 +29,11 @@
     margin-bottom: 20px;
   }
 }
-
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-   /* margin-left: 200px; */
+   margin-left: 60px;
   padding: 16px;
-  margin-left: 90px;
   text-align: center;
   background-color: #f1f1f1;
 }
@@ -51,7 +44,6 @@
 
 <div class="row">
   <div class="column">
-    <center>
     <div class="card">
       <h3>My Info</h3>
       <b>Name: </b><p> <%= @user.name %></p>
@@ -64,13 +56,14 @@
   <div class="column">
     <div class="card">
       <h3>My Biz</h3>
+      <p>  <p><% @user.businesses.each do |d| %>
+              <b>Start-up: </b> <%=  d.name %>
+              <br>
+              <b>Goal: </b> $<%=  d.goal %>
+              <% end %>
       <p>
 
-        <p><% @user.businesses.each do |d| %>
-                <b><%=  d.business.name %>: </b> 
 
-              <br>
-            <% end %></p>
         </p>
     </div>
   </div>
@@ -82,14 +75,16 @@
       <p> Stuff I've Donated to </p>
       <p>My pledges </p>
       <p><% @user.donations.each do |d| %>
-              <b><%=  d.business.name %>: </b> $<%=  d.amount %>
+              <b><%=  d.business.name %>: </b> <%=  d.amount %>
 
             <br>
           <% end %></p>
 
+
+         <br>
+
     </div>
   </div>
-
 
 </div>
 

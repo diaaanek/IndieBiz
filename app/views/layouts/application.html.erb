@@ -13,7 +13,7 @@ rel='stylesheet' type='text/css'> -->
   </head>
 
 
-  <body> 
+  <body>
       <header>
         <nav>
           <span id="logo-link"><%= link_to "IndieBiz", root_path %></span>
@@ -24,6 +24,8 @@ rel='stylesheet' type='text/css'> -->
             <%= link_to "login", '/login' if !@current_user %>
             <%= link_to "logout", '/logout' if @current_user %>
         </nav>
+
+        #if session exsits show login /logout
 
       </header>
 

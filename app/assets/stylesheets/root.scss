@@ -1,5 +1,6 @@
 body#home_body {
  background-image: url(rain.gif);
+
  // background-color: #e7e7e7;
  background-size: cover;
 
@@ -29,12 +30,16 @@ div.homepage_header {
   color: white;
 
   // background-color: white;
-  font-shadow: 5px 3px 5px 0 rgba(0, 0, 0, 0.26);
+shadow: 6px 3px 5px 0 rgba(0, 0, 0, 0.26);
+ text-shadow: 2px 1px 0px #000, 5px 5px 0px rgba(0,0,0,0.15);
 }
 
 .header_bottom {
   text-align: center;
   font-size: 4em;
+  shadow: 10px 3px 5px 0 rgba(0, 0, 0, 0.50);
+   text-shadow: 5px 2px 0px #000, 5px 5px 0px rgba(0,0,0,0.15);
+
 
     // background-color: white;
 
