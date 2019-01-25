@@ -11,7 +11,7 @@
 
 /* Float four columns side by side */
 .column {
-  float: left;
+  float: center;
   width: 25%;
   padding: 0 10px;
 }
@@ -38,8 +38,9 @@
 /* Style the counter cards */
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-   margin-left: 200px;
+   /* margin-left: 200px; */
   padding: 16px;
+  margin-left: 90px;
   text-align: center;
   background-color: #f1f1f1;
 }
@@ -50,6 +51,7 @@
 
 <div class="row">
   <div class="column">
+    <center>
     <div class="card">
       <h3>My Info</h3>
       <b>Name: </b><p> <%= @user.name %></p>
@@ -64,7 +66,11 @@
       <h3>My Biz</h3>
       <p>
 
+        <p><% @user.businesses.each do |d| %>
+                <b><%=  d.business.name %>: </b> 
 
+              <br>
+            <% end %></p>
         </p>
     </div>
   </div>
@@ -76,16 +82,14 @@
       <p> Stuff I've Donated to </p>
       <p>My pledges </p>
       <p><% @user.donations.each do |d| %>
-              <b><%=  d.business.name %>: </b> <%=  d.amount %>
+              <b><%=  d.business.name %>: </b> $<%=  d.amount %>
 
             <br>
           <% end %></p>
 
-
-         <br>
-
     </div>
   </div>
+
 
 </div>
 

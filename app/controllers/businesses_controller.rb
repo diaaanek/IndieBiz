@@ -7,12 +7,19 @@ class BusinessesController < ApplicationController
 
   def index
     @businesses = Business.all
+    render :layout => "application"
+
+    @images  = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"]
+    @random_no = rand(7)
+    @random_image = @images[@random_no]
+
   end
 
   	def new
   		@business = Business.new
       @categories = Category.all
       @users = User.all
+
   	end
 
   	def create
@@ -36,6 +43,10 @@ class BusinessesController < ApplicationController
           else
             @business.reviews.average(:rating).round(2)
           end
+
+          @images  = ["1.jpg", "2.jpg", "3.jpg", "4.jpg", "5.jpg", "6.jpg", "7.jpg"]
+          @random_no = rand(7)
+          @random_image = @images[@random_no]
 
     end
 

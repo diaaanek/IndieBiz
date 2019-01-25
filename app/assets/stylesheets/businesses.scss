@@ -16,9 +16,8 @@ h1 {
   top: 50%;
   font-size: 4em;
   border-width: 5px 40px;
-  border-style: solid;
-  border-color: #fff;
-  color: #000;
+  color: white;
+  background-color: black;
 
   position: relative;
   display: inline-block;
@@ -35,7 +34,10 @@ h1 {
 
   }
 
+.biznew {
+left: 50;
 
+}
 
 .show-wrapper {
   position: absolute;
@@ -51,11 +53,13 @@ h1 {
   float:left;
   width: 40%;
     margin-left: 35px;
+
 }
 
 
 .business {
   font-size: 2em;
+
 }
 
 .action-buttons a, .comment .action-buttons {

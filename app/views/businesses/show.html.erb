@@ -1,4 +1,7 @@
-<div id="header-image" class="<%=  %>">
+
+
+
+<div id="header-image" class="<%= random_class %> ">
   <section class="header-box"><%= @business.name %></section><br>
 </div>
 <br>
@@ -28,10 +31,10 @@
 
 <!-- SHOW REVIEWS -->
     <section class="comments">
-        <div class="review">
+
 
       <h3><%= "#{@reviews.size} " %> Reviews:</h3>
-
+<div class="comment-div">
         <% @business.reviews.each do |d| %>
           <div class='star-rating' data-score=<%= @avg_rating %>></div>
         <b> Rating: </b> <%= d.rating %> <br>
@@ -48,10 +51,15 @@
 
     <!-- DONATIONS -->
 
+
+
     <h3> Pledges:</h3>
+    <br>
     <% @business.donations.each do |d| %>
     <b> Amount: </b> <%= d.amount %> <br>
     <b> Backer: </b> <%= d.user.name %>
+
+
     <br><br>
     <% end %>
         <div class="action-buttons">

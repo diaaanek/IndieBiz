@@ -1,5 +1,4 @@
-<link href='https://fonts.googleapis.com/css?family=Raleway:500,900,200'
-rel='stylesheet' type='text/css'>
+
 
 <!DOCTYPE html>
 <html>
@@ -14,19 +13,16 @@ rel='stylesheet' type='text/css'>
 
 
   <body>
+
       <header>
-        <nav>
+          <nav id="nav">
           <span id="logo-link"><%= link_to "IndieBiz", root_path %></span>
-
             <%= link_to "start-ups", businesses_path %>
-
-              #user_businesses_path
-              <%= link_to "my biz", user_path(@current_user) if @current_user %>
 
             <%= link_to "login", '/login' if !@current_user%>
             <%= link_to "logout", '/logout' if @current_user  %>
+              <%= link_to "my biz", user_path(@current_user) if @current_user %>
         </nav>
-
       </header>
     <%= yield %>
   </body>

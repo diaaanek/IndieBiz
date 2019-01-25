@@ -1,15 +1,13 @@
 
+<center>
+<br><br><br><br><br>
+<h2><%= @businesses.count %> Start-Ups </h2>
+  <%= link_to "Submit Start-Up Idea", new_business_path, class:"button create_button" %>
 
-<br><br><br>
-  <center><h2><%= @businesses.count %> Start-Ups </h2>
-<div class="wrapper"><br>
+<div class="wrapper">
   <% @businesses.each do |biz| %>
-    <h5>  <div class="biz_name"><%= link_to biz.name, business_path(biz) %></div>
-
+  <div class="business_size div_card <%= random_class %>">
+      <div class="business_name"><%= link_to biz.name, business_path(biz) %></div><br>
     </div>
   <% end %>
-  <br>
-    <%= link_to "Submit Start-Up Idea", new_business_path, class:"button create_button" %>
 </div>
-
-</center>

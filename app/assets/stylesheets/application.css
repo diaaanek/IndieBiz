@@ -22,7 +22,7 @@
 
 
  body{
-   font-family: "Raleway", Arial, sans-serif;
+   font-family: "Avenir Next" !important;
      margin-bottom: 60px;
  }
 
@@ -56,8 +56,8 @@ nav {
   padding: 5px 12px;
 }
 
-/*
-.button, input[type="submit" i]{
+
+/* .button, input[type="submit" i]{
   color: #fff;
   text-decoration: none;
   background-color: #000;
@@ -86,12 +86,6 @@ input, textarea, select {
   margin: 5px;
 }
 
-input[type="checkbox" i] {
-  display: inline-block;
-  width: 20px;
-  height: 15px;
-  margin: 10px;
-}
 
 textarea {
   height: 100px;
@@ -113,4 +107,46 @@ input[type="submit" i] {
   vertical-align: top;
   position: relative;
   height: 200px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+
+.random-background-0 {
+  background-image: url('0.jpg');
+  background-size: cover;
+}
+.random-background-1 {
+  background-image: url('1.jpg');
+  background-size: cover;
+}
+
+.random-background-2 {
+  background-image: url('2.jpg');
+  background-size: cover;
+}
+
+.random-background-3 {
+  background-image: url('3.jpg');
+  background-size: cover;
+}
+
+.random-background-4 {
+  background-image: url('4.jpg');
+  background-size: cover;
+}
+
+.random-background-5 {
+  background-image: url('5.jpg');
+  background-size: cover;
+}
+
+.random-background-6 {
+  background-image: url('6.jpg');
+  background-size: cover;
+}
+
+.random-background-7 {
+  background-image: url('7.jpg');
+  background-size: cover;
 }
