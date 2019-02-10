@@ -18,7 +18,7 @@ require_login
 
   	end
 
-  	def create
+    def create
 
       @business = Business.create(business_params)
   		    if @business.valid?

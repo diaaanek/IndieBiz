@@ -44,6 +44,16 @@ end
   def edit
   end
 
+  def remove_my_donations
+    byebug
+    set_user
+    byebug
+    @user.donations.each do |e|
+      e.destroy
+    end
+
+  end
+
 
   def destroy
   end

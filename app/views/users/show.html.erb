@@ -49,6 +49,9 @@
       <b>Name: </b><p> <%= @user.name %></p>
       <b>Email: </b><p> <%= @user.email %></p>
       <b>Bio: </b><p> <%= @user.bio %></p>
+      <b>
+
+
 
     </div>
   </div>
@@ -56,13 +59,11 @@
   <div class="column">
     <div class="card">
       <h3>My Biz</h3>
-      <p>  <p><% @user.businesses.each do |d| %>
-              <b>Start-up: </b> <%=  d.name %>
+      <p><% @user.businesses.each do |d| %>
+            <br>  <b>Start-up: </b> <%=  d.name %>
               <br>
               <b>Goal: </b> $<%=  d.goal %>
               <% end %>
-      <p>
-
 
         </p>
     </div>

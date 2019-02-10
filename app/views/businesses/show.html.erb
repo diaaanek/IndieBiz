@@ -32,10 +32,11 @@
 <!-- SHOW REVIEWS -->
     <section class="comments">
 
-<!-- 
+<!--
 Review.where(@business.id).size  -->
 <div class="comment-div">
   <div class="comment">
+      <h3> Reviews:</h3>
         <% @business.reviews.each do |d| %>
           <div class='star-rating' data-score=<%= @avg_rating %>></div>
         <b> Rating: </b> <%= d.rating %> <br>
@@ -72,13 +73,3 @@ Review.where(@business.id).size  -->
 
   </section>
 </div>
-
-<script>
-    $('.star-rating').raty({
-      path: '/assets/',
-      readOnly: true,
-      score: function() {
-            return $(this).attr('data-score');
-    }
-  });
-</script>
